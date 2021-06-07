@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, {Component} from 'react'
 import './App.css';
+import { CardList } from './components/card-list/CardList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      cats: [],
+      searchField: ''
+    }
+  }
+  componentDidMount(){
+    fetch('http://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(users=> this.setState({cats: users}));
+  }
+  render(){
+    return (
+      <div className="app">
+        <input type="search" placeholder="search cats" onChange={e => this.setState({searchField: e.target.value}, ()=>console.log(this.state.searchField))}/>
+          <CardList cats={this.state.cats}/>
+      </div>
+    );
+  }
 }
 
 export default App;
