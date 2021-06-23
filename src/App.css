@@ -1,15 +1,26 @@
-.app{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
+body {
+  padding: 30px 0;
 }
-input{
-    padding: .5rem;
-    outline: none;
-    border-image-source: linear-gradient(rgba(255, 136, 0, 0.5), rgba(209, 2, 195, 0.5));
-    border-width: 5pt;
-    border-image-slice: 1;
-    border-radius: .65rem;
-    margin: 10px 0;
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Bigelow Rules';
+  font-size: 72px;
+  color: #0ccac4;
+}
+input {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #0ccac4;
+  color: #fff;
+  border: none;
+  outline: none;
+  margin: .5rem 0 1rem 0;
+}
+input::placeholder{
+  color: #fff;
 }

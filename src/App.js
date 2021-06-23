@@ -22,7 +22,8 @@ class App extends Component {
       cat.name.toLowerCase().includes(searchField.toLowerCase())
     )
     return (
-      <div className="app">
+      <div className="App">
+        <h1>Cats Filter</h1>
           <SearchBox
           placeholder="search cats"
           handleChange={e => this.setState({searchField: e.target.value})}
